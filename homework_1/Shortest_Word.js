@@ -8,8 +8,8 @@ function findShort(s){
 
 // Second solution
 function findShort(s){
+  let result = s.length;
   s = s.split(' ')
-  let result = 100;
   for (let i of s) {
     if (i.length < result) {
       result = i.length
