@@ -1,9 +1,7 @@
 function numObj(s){
   let result = []
   for (let i of s) {
-    let a = {}
-    a[i] = String.fromCodePoint(i)
-    result.push(a)
+    result.push( {[i]: String.fromCodePoint(i)} )
   }
   return result
 }
