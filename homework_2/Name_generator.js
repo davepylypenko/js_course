@@ -1,3 +1,4 @@
+// 308 915 776 вариантов
 function generateName() {
 
   // рандомное число от 65 до 90 (все большие латинские буквы по Юникод)
@@ -21,6 +22,7 @@ function generateName() {
 }
 
 
+// 19 770 609 664 вариантов с возможностью расширения
 function generateName() {
 
   const items = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
