@@ -8,8 +8,8 @@ var Cat = (function () {
 
     // выдаем ошибку если нет значения
     if (name == undefined || weight == undefined) {
-      throw Error('Error')
-    }
+      throw Error('Error');
+    };
 
     // устанавливаем значения
     this.name = name;
@@ -17,10 +17,10 @@ var Cat = (function () {
       get: function() {return weight},
       set: function(value) {
         // при каждом set редактируем значение в allWeight
-        allWeight[this.name] = value
+        allWeight[this.name] = value;
         weight = value;
         return weight;
-      }
+      },
     });
     
     // пушим первые значения
@@ -34,5 +34,5 @@ var Cat = (function () {
   };
 
   // возвращаем конструктор (для замыкания)
-  return constructor
+  return constructor;
 }());
