@@ -1,31 +1,38 @@
-// Код не работает
+var Cat = (function () {
 
-function Cat(name, w) {
-
-  // это обычный конструктор (финальная версия, много не логичных штук)
-  this.name = name;
-  this._weight = w;
+  // сохраняем все значения веса
+  let allWeight = {};
   
-  // сеттеры и геттеры
-  Object.defineProperty(this, 'weight', {
-    get() {
-      return this._weight
-    },
-    set(value) {
-      allWeight[this.name] = value
-      this._weight = value
+  // используем замыкание для сохранения allWeight
+  let constructor = function(name, weight) {
+
+    // выдаем ошибку если нет значения
+    if (name == undefined || weight == undefined) {
+      throw Error('Error')
     }
-    })
-  
-  // не реализовал среднее значение
-  let allWeight = {}
-  Cat.averageWeight = function () {
-    let arr = Object.values(allWeight);
-    return arr.reduce( (sum, val) => sum += val) / arr.length
-  }
-}
 
+    // устанавливаем значения
+    this.name = name;
+    Object.defineProperty(this, 'weight', {
+      get: function() {return weight},
+      set: function(value) {
+        // при каждом set редактируем значение в allWeight
+        allWeight[this.name] = value
+        weight = value;
+        return weight;
+      }
+    });
+    
+    // пушим первые значения
+    allWeight[this.name] = weight
+  };
 
+  // создаем функцию для подсчета среднего веса
+  constructor.averageWeight = function() {
+    let arr = Object.values(allWeight)
+    return arr.reduce( (sum, val) => sum += val, 0) / arr.length
+  };
 
-
-
+  // возвращаем конструктор (для замыкания)
+  return constructor
+}());
