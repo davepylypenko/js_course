@@ -9,7 +9,8 @@
 ### 3. [Count IP Addresses]
 [Count IP Addresses]: https://www.codewars.com/kata/526989a41034285187000de4/javascript
 
-### 4.
+### 4. [ParseInt]
+[ParseInt]: https://www.codewars.com/kata/525c7c5ab6aecef16e0001a5
 
 
 ### 5.
